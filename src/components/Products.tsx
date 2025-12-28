@@ -17,6 +17,9 @@ import pomada1 from "@/assets/pomada-1.jpg";
 import kemeitx1_1 from "@/assets/kemeitx1-1.webp";
 import kemeitx1_2 from "@/assets/kemeitx1-2.webp";
 import kemeitx1_3 from "@/assets/kemeitx1-3.webp";
+import vgr001_1 from "@/assets/vgr001-1.webp";
+import vgr001_2 from "@/assets/vgr001-2.webp";
+import vgr001_3 from "@/assets/vgr001-3.webp";
 
 const products = [
   {
@@ -87,6 +90,16 @@ const products = [
     price: "R$ 54,90",
     priceNumber: 54.9,
     originalPrice: "R$ 119,90",
+    rating: 5,
+  },
+  {
+    id: "8",
+    images: [vgr001_1, vgr001_2, vgr001_3],
+    name: "VGR V001 PREMIUM",
+    description: "Máquina profissional 9000RPM com display LCD, 260 min de bateria e 12 pentes ajustáveis.",
+    price: "R$ 89,90",
+    priceNumber: 89.9,
+    originalPrice: "R$ 189,90",
     rating: 5,
   },
 ];
