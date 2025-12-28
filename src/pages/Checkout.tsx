@@ -363,6 +363,109 @@ const Checkout = () => {
                     />
                   </div>
 
+                  <div className="border-t border-border pt-4 mt-4">
+                    <h3 className="text-sm font-semibold mb-3 flex items-center gap-2">
+                      <MapPin size={16} className="text-primary" />
+                      Endereço de Entrega
+                    </h3>
+                  </div>
+
+                  <div className="space-y-2">
+                    <Label htmlFor="pix-cep">CEP</Label>
+                    <div className="flex gap-2">
+                      <Input 
+                        id="pix-cep" 
+                        required 
+                        placeholder="00000-000"
+                        value={address.cep}
+                        onChange={(e) => {
+                          const value = e.target.value.replace(/\D/g, "");
+                          setAddress({ ...address, cep: value });
+                          if (value.length === 8) {
+                            searchCep(value);
+                          }
+                        }}
+                        maxLength={9}
+                      />
+                      <Button 
+                        type="button" 
+                        variant="outline" 
+                        onClick={() => searchCep(address.cep)}
+                        disabled={loadingCep}
+                      >
+                        {loadingCep ? <Loader2 size={16} className="animate-spin" /> : <MapPin size={16} />}
+                      </Button>
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="space-y-2">
+                      <Label htmlFor="pix-logradouro">Rua</Label>
+                      <Input 
+                        id="pix-logradouro" 
+                        required 
+                        placeholder="Rua/Avenida"
+                        value={address.logradouro}
+                        onChange={(e) => setAddress({ ...address, logradouro: e.target.value })}
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="pix-numero">Número</Label>
+                      <Input 
+                        id="pix-numero" 
+                        required 
+                        placeholder="123"
+                        value={address.numero}
+                        onChange={(e) => setAddress({ ...address, numero: e.target.value })}
+                      />
+                    </div>
+                  </div>
+
+                  <div className="space-y-2">
+                    <Label htmlFor="pix-complemento">Complemento</Label>
+                    <Input 
+                      id="pix-complemento" 
+                      placeholder="Apto, Bloco, etc."
+                      value={address.complemento}
+                      onChange={(e) => setAddress({ ...address, complemento: e.target.value })}
+                    />
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="space-y-2">
+                      <Label htmlFor="pix-bairro">Bairro</Label>
+                      <Input 
+                        id="pix-bairro" 
+                        required 
+                        placeholder="Bairro"
+                        value={address.bairro}
+                        onChange={(e) => setAddress({ ...address, bairro: e.target.value })}
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="pix-localidade">Cidade</Label>
+                      <Input 
+                        id="pix-localidade" 
+                        required 
+                        placeholder="Cidade"
+                        value={address.localidade}
+                        onChange={(e) => setAddress({ ...address, localidade: e.target.value })}
+                      />
+                    </div>
+                  </div>
+
+                  <div className="space-y-2">
+                    <Label htmlFor="pix-uf">Estado</Label>
+                    <Input 
+                      id="pix-uf" 
+                      required 
+                      placeholder="UF"
+                      value={address.uf}
+                      onChange={(e) => setAddress({ ...address, uf: e.target.value })}
+                      maxLength={2}
+                    />
+                  </div>
+
                   <Button 
                     type="submit" 
                     variant="premium" 
