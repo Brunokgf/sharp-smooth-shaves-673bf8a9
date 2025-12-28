@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Menu } from "lucide-react";
 import { useState } from "react";
 import CartSheet from "./CartSheet";
+import bladeProLogo from "@/assets/blade-pro-logo.png";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -11,13 +12,12 @@ const Header = () => {
       <div className="container mx-auto px-6 py-4">
         <nav className="flex items-center justify-between">
           {/* Logo */}
-          <div className="flex items-center gap-2">
-            <span className="text-2xl font-display font-bold text-gradient-gold">
-              BLADE
-            </span>
-            <span className="text-2xl font-display font-light text-foreground">
-              PRO
-            </span>
+          <div className="flex items-center">
+            <img 
+              src={bladeProLogo} 
+              alt="Blade Pro" 
+              className="h-10 w-auto"
+            />
           </div>
 
           {/* Desktop Navigation */}
