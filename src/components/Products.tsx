@@ -11,6 +11,8 @@ import problack3 from "@/assets/problack-3.webp";
 import vintage1 from "@/assets/vintage-1.webp";
 import vintage2 from "@/assets/vintage-2.webp";
 import vintage3 from "@/assets/vintage-3.webp";
+import kemei6558_1 from "@/assets/kemei6558-1.jpg";
+import kemei6558_2 from "@/assets/kemei6558-2.jpg";
 
 const products = [
   {
@@ -51,6 +53,16 @@ const products = [
     price: "R$ 49,90",
     priceNumber: 49.9,
     originalPrice: "R$ 109,90",
+    rating: 5,
+  },
+  {
+    id: "5",
+    images: [kemei6558_1, kemei6558_2],
+    name: "KEMEI 3 EM 1 KM-6558",
+    description: "Máquina multifuncional 3 em 1: barbeador, aparador e cortador de pelos do nariz.",
+    price: "R$ 42,90",
+    priceNumber: 42.9,
+    originalPrice: "R$ 89,90",
     rating: 5,
   },
 ];
