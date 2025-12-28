@@ -68,12 +68,15 @@ serve(async (req) => {
       throw new Error(data.message || 'Failed to create PIX payment');
     }
 
+    // API returns pix.qrcode (lowercase) - the QR code string IS the copy-paste code
+    const pixQrCode = data.pix?.qrcode || data.pix?.qrCode || data.qrCode;
+    
     return new Response(JSON.stringify({
       success: true,
       transactionId: data.id,
-      pixCode: data.pix?.qrCode || data.qrCode,
-      pixCopyPaste: data.pix?.copyPaste || data.copyPaste || data.pix?.qrCodeText,
-      expiresAt: data.pix?.expiresAt || data.expiresAt,
+      pixCode: pixQrCode,
+      pixCopyPaste: pixQrCode, // The qrcode string is the PIX copia e cola
+      expiresAt: data.pix?.expirationDate || data.pix?.expiresAt || data.expiresAt,
     }), {
       headers: { ...corsHeaders, 'Content-Type': 'application/json' },
     });
