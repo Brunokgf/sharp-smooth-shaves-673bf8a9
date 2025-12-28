@@ -1,7 +1,7 @@
 import ProductCard from "./ProductCard";
-import product1 from "@/assets/product-1.jpg";
-import product2 from "@/assets/product-2.jpg";
-import product3 from "@/assets/product-3.webp";
+import aparador1 from "@/assets/aparador-1.jpg";
+import aparador2 from "@/assets/aparador-2.jpg";
+import aparador3 from "@/assets/aparador-3.jpg";
 import product4 from "@/assets/product-4.jpg";
 import product5 from "@/assets/product-5.jpg";
 import product6 from "@/assets/product-6.jpg";
@@ -19,9 +19,9 @@ import product16 from "@/assets/product-16.webp";
 const products = [
   {
     id: "1",
-    images: [product1, product2, product3],
-    name: "PHILIPS ONEBLADE",
-    description: "Aparador e barbeador elétrico 3 em 1 para rosto e corpo.",
+    images: [aparador1, aparador2, aparador3],
+    name: "APARADOR ELÉTRICO PHILIPS",
+    description: "Aparador e barbeador elétrico 3 em 1, à prova d'água, recarregável bivolt com 2 anos de garantia.",
     price: "R$ 39,90",
     priceNumber: 39.9,
     originalPrice: "R$ 89,90",
