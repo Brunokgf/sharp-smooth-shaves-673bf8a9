@@ -8,16 +8,10 @@ import kemei3 from "@/assets/kemei-3.jpg";
 import problack1 from "@/assets/problack-1.webp";
 import problack2 from "@/assets/problack-2.webp";
 import problack3 from "@/assets/problack-3.webp";
-import product10 from "@/assets/product-10.webp";
-import product11 from "@/assets/product-11.webp";
-import product12 from "@/assets/product-12.webp";
-import product13 from "@/assets/product-13.webp";
-import product14 from "@/assets/product-14.webp";
-import product15 from "@/assets/product-15.webp";
-import product16 from "@/assets/product-16.webp";
 import vintage1 from "@/assets/vintage-1.webp";
 import vintage2 from "@/assets/vintage-2.webp";
 import vintage3 from "@/assets/vintage-3.webp";
+
 const products = [
   {
     id: "1",
@@ -51,16 +45,6 @@ const products = [
   },
   {
     id: "4",
-    images: [product10, product11, product12],
-    name: "SHAVER 3D",
-    description: "Barbeador rotativo com 3 cabeças flutuantes e cabo USB.",
-    price: "R$ 44,90",
-    priceNumber: 44.9,
-    originalPrice: "R$ 99,90",
-    rating: 5,
-  },
-  {
-    id: "5",
     images: [vintage1, vintage2, vintage3],
     name: "MÁQUINA DE CORTAR CABELO VINTAGE",
     description: "Máquina vintage V700 sem fio com lâmina T, 120 min de uso e design premium com pentes ajustáveis.",
