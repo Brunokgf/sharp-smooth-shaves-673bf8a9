@@ -29,6 +29,9 @@ import tesoura1 from "@/assets/tesoura-1.webp";
 import tesoura2 from "@/assets/tesoura-2.webp";
 import navalhetegold1 from "@/assets/navalhete-gold-1.webp";
 import navalhetegold2 from "@/assets/navalhete-gold-2.webp";
+import philips9em1_1 from "@/assets/philips9em1-1.jpg";
+import philips9em1_2 from "@/assets/philips9em1-2.jpg";
+import philips9em1_3 from "@/assets/philips9em1-3.jpg";
 
 const products = [
   {
@@ -149,6 +152,16 @@ const products = [
     price: "R$ 24,90",
     priceNumber: 24.9,
     originalPrice: "R$ 54,90",
+    rating: 5,
+  },
+  {
+    id: "13",
+    images: [philips9em1_1, philips9em1_2, philips9em1_3],
+    name: "PHILIPS MULTIGROOM 9 EM 1",
+    description: "Aparador de pelos 9 em 1 Série 3000, bivolt com pente ajustável 1-3mm e acessórios completos.",
+    price: "R$ 79,90",
+    priceNumber: 79.9,
+    originalPrice: "R$ 169,90",
     rating: 5,
   },
 ];
