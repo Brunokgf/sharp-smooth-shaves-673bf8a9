@@ -93,26 +93,26 @@ const products = [
 
 const Products = () => {
   return (
-    <section id="produtos" className="py-24 bg-background relative">
+    <section id="produtos" className="py-12 md:py-24 bg-background relative">
       {/* Background accent */}
       <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-[150px] pointer-events-none" />
       
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto px-4 md:px-6">
         {/* Section Header */}
-        <div className="text-center space-y-4 mb-16">
-          <p className="text-primary font-body uppercase tracking-[0.3em] text-sm opacity-0 animate-fade-up">
+        <div className="text-center space-y-3 md:space-y-4 mb-8 md:mb-16">
+          <p className="text-primary font-body uppercase tracking-[0.2em] md:tracking-[0.3em] text-xs md:text-sm opacity-0 animate-fade-up">
             Nossa Linha
           </p>
-          <h2 className="text-4xl md:text-5xl font-display font-bold text-foreground opacity-0 animate-fade-up" style={{ animationDelay: "0.1s" }}>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-bold text-foreground opacity-0 animate-fade-up" style={{ animationDelay: "0.1s" }}>
             Produtos <span className="text-gradient-gold">Premium</span>
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto opacity-0 animate-fade-up" style={{ animationDelay: "0.2s" }}>
+          <p className="text-muted-foreground text-sm md:text-base max-w-2xl mx-auto opacity-0 animate-fade-up px-4" style={{ animationDelay: "0.2s" }}>
             Cada máquina é projetada com precisão milimétrica para oferecer o melhor barbear da sua vida.
           </p>
         </div>
 
         {/* Products Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-4 md:gap-6 lg:gap-8">
           {products.map((product, index) => (
             <ProductCard 
               key={product.id} 

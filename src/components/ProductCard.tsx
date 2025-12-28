@@ -52,7 +52,7 @@ const ProductCard = ({ id, images, name, description, price, priceNumber, origin
         style={{ animationDelay: delay }}
       >
         {/* Product Image Carousel */}
-        <div className="relative h-72 overflow-hidden bg-charcoal">
+        <div className="relative h-48 sm:h-64 md:h-72 overflow-hidden bg-charcoal">
           <div className="absolute inset-0 bg-primary/5 group-hover:bg-primary/10 transition-colors duration-500" />
           
           <img 
@@ -116,7 +116,7 @@ const ProductCard = ({ id, images, name, description, price, priceNumber, origin
         </div>
 
         {/* Product Info */}
-        <div className="p-6 space-y-4">
+        <div className="p-4 sm:p-5 md:p-6 space-y-3 sm:space-y-4">
           {/* Rating */}
           <div className="flex items-center gap-1">
             {Array.from({ length: 5 }).map((_, i) => (
@@ -131,7 +131,7 @@ const ProductCard = ({ id, images, name, description, price, priceNumber, origin
 
           {/* Name & Description */}
           <div>
-            <h3 className="text-lg font-display font-semibold text-foreground group-hover:text-primary transition-colors">
+            <h3 className="text-sm sm:text-base md:text-lg font-display font-semibold text-foreground group-hover:text-primary transition-colors line-clamp-2">
               {name}
             </h3>
             <p className="text-sm text-muted-foreground mt-1 line-clamp-2">
@@ -141,7 +141,7 @@ const ProductCard = ({ id, images, name, description, price, priceNumber, origin
 
           {/* Price */}
           <div className="flex items-baseline gap-3">
-            <span className="text-2xl font-display font-bold text-gradient-gold">
+            <span className="text-lg sm:text-xl md:text-2xl font-display font-bold text-gradient-gold">
               {price}
             </span>
             {originalPrice && (
@@ -152,12 +152,13 @@ const ProductCard = ({ id, images, name, description, price, priceNumber, origin
           </div>
 
           {/* Buttons */}
-          <div className="flex gap-2">
-            <Button variant="outline" className="flex-1" onClick={handleAddToCart}>
-              <ShoppingCart size={16} className="mr-2" />
-              Carrinho
+          <div className="flex flex-col sm:flex-row gap-2">
+            <Button variant="outline" size="sm" className="flex-1 text-xs sm:text-sm" onClick={handleAddToCart}>
+              <ShoppingCart size={14} className="mr-1 sm:mr-2" />
+              <span className="hidden sm:inline">Carrinho</span>
+              <span className="sm:hidden">+</span>
             </Button>
-            <Button variant="hero" className="flex-1" onClick={handleBuyClick}>
+            <Button variant="hero" size="sm" className="flex-1 text-xs sm:text-sm" onClick={handleBuyClick}>
               Comprar
             </Button>
           </div>
