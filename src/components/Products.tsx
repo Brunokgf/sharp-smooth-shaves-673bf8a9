@@ -25,6 +25,10 @@ import bmax2 from "@/assets/bmax-2.jpg";
 import navalhete1 from "@/assets/navalhete-1.jpg";
 import navalhete2 from "@/assets/navalhete-2.jpg";
 import navalhete3 from "@/assets/navalhete-3.jpg";
+import tesoura1 from "@/assets/tesoura-1.webp";
+import tesoura2 from "@/assets/tesoura-2.webp";
+import navalhetegold1 from "@/assets/navalhete-gold-1.webp";
+import navalhetegold2 from "@/assets/navalhete-gold-2.webp";
 
 const products = [
   {
@@ -125,6 +129,26 @@ const products = [
     price: "R$ 14,90",
     priceNumber: 14.9,
     originalPrice: "R$ 34,90",
+    rating: 5,
+  },
+  {
+    id: "11",
+    images: [tesoura1, tesoura2],
+    name: "KIT TESOURAS FIO LASER",
+    description: "Kit com tesoura reta e tesoura de dentes profissional para corte e desbaste de cabelo.",
+    price: "R$ 29,90",
+    priceNumber: 29.9,
+    originalPrice: "R$ 69,90",
+    rating: 5,
+  },
+  {
+    id: "12",
+    images: [navalhetegold1, navalhetegold2],
+    name: "NAVALHETE MOMPIL GOLD",
+    description: "Navalhete premium com cabo de madeira e detalhes dourados, inclui lâminas Lord Platinum.",
+    price: "R$ 24,90",
+    priceNumber: 24.9,
+    originalPrice: "R$ 54,90",
     rating: 5,
   },
 ];
