@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ShoppingBag, Shield, Truck, Star } from "lucide-react";
-import heroShaver from "@/assets/hero-shaver.png";
+import vintage1 from "@/assets/vintage-1.webp";
 
 const Hero = () => {
   const scrollToProducts = () => {
@@ -103,8 +103,8 @@ const Hero = () => {
               <div className="absolute inset-0 bg-primary/20 blur-[80px] scale-75" />
               
               <img 
-                src={heroShaver} 
-                alt="Máquina de barbear premium BLADE PRO" 
+                src={vintage1} 
+                alt="Máquina de Cortar Cabelo Vintage V700" 
                 className="relative z-10 w-full max-w-xs md:max-w-lg animate-float drop-shadow-2xl"
               />
               
