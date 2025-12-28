@@ -13,6 +13,7 @@ import vintage2 from "@/assets/vintage-2.webp";
 import vintage3 from "@/assets/vintage-3.webp";
 import kemei6558_1 from "@/assets/kemei6558-1.jpg";
 import kemei6558_2 from "@/assets/kemei6558-2.jpg";
+import pomada1 from "@/assets/pomada-1.jpg";
 
 const products = [
   {
@@ -63,6 +64,16 @@ const products = [
     price: "R$ 42,90",
     priceNumber: 42.9,
     originalPrice: "R$ 89,90",
+    rating: 5,
+  },
+  {
+    id: "6",
+    images: [pomada1],
+    name: "POMADA MODELADORA CHARMING",
+    description: "Pomada modeladora forte 50g para cabelo masculino com fixação duradoura.",
+    price: "R$ 19,90",
+    priceNumber: 19.9,
+    originalPrice: "R$ 39,90",
     rating: 5,
   },
 ];
