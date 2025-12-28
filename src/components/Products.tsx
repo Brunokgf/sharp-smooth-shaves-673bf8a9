@@ -177,6 +177,16 @@ const products = [
     originalPrice: "R$ 189,90",
     rating: 5,
   },
+  {
+    id: "15",
+    images: [vintage1, vintage2, vintage3],
+    name: "MÁQUINA DE CORTAR CABELO VINTAGE",
+    description: "Máquina vintage V700 sem fio com lâmina T, 120 min de uso e design premium com pentes ajustáveis.",
+    price: "R$ 49,90",
+    priceNumber: 49.9,
+    originalPrice: "R$ 109,90",
+    rating: 5,
+  },
 ];
 
 const Products = () => {
