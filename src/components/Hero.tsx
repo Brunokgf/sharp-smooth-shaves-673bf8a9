@@ -1,58 +1,103 @@
 import { Button } from "@/components/ui/button";
+import { ShoppingBag, Shield, Truck, Star } from "lucide-react";
 import heroShaver from "@/assets/hero-shaver.png";
 
 const Hero = () => {
+  const scrollToProducts = () => {
+    document.getElementById("produtos")?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
-    <section className="relative min-h-screen flex items-center bg-gradient-hero overflow-hidden pt-20">
+    <section className="relative min-h-screen flex items-center bg-gradient-hero overflow-hidden pt-32 md:pt-20">
       {/* Background glow effect */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[120px] pointer-events-none" />
       
-      <div className="container mx-auto px-6 py-20">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+      <div className="container mx-auto px-4 md:px-6 py-8 md:py-20">
+        <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-center">
           {/* Text Content */}
-          <div className="text-center lg:text-left space-y-8 opacity-0 animate-fade-up" style={{ animationDelay: "0.2s" }}>
+          <div className="text-center lg:text-left space-y-6 opacity-0 animate-fade-up order-2 lg:order-1" style={{ animationDelay: "0.2s" }}>
+            
+            {/* Urgency Badge */}
+            <div className="inline-flex items-center gap-2 bg-red-500/20 border border-red-500/50 rounded-full px-4 py-2 animate-pulse">
+              <span className="text-red-400 text-xs md:text-sm font-bold uppercase tracking-wide">
+                🔥 Últimas unidades com 50% OFF
+              </span>
+            </div>
+
             <div className="space-y-4">
-              <p className="text-primary font-body uppercase tracking-[0.3em] text-sm">
-                Tecnologia de Ponta
-              </p>
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-display font-bold text-foreground leading-tight">
+              <h1 className="text-4xl md:text-5xl lg:text-7xl font-display font-bold text-foreground leading-tight">
                 O Barbear
                 <span className="block text-gradient-gold">Perfeito</span>
               </h1>
-              <p className="text-lg text-muted-foreground max-w-md mx-auto lg:mx-0">
-                Experimente a precisão de engenharia alemã com lâminas de aço japonês. 
-                O resultado mais suave que você já sentiu.
+              <p className="text-base md:text-lg text-muted-foreground max-w-md mx-auto lg:mx-0">
+                Engenharia alemã + lâminas japonesas. O resultado mais suave que você já sentiu.
               </p>
             </div>
-            
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <Button variant="hero" size="lg">
-                Descubra Mais
+
+            {/* Price Block */}
+            <div className="bg-card/50 border border-border rounded-xl p-4 md:p-6 max-w-sm mx-auto lg:mx-0">
+              <div className="flex items-center justify-between mb-3">
+                <div>
+                  <p className="text-muted-foreground text-sm line-through">R$ 599,90</p>
+                  <p className="text-3xl md:text-4xl font-display font-bold text-gradient-gold">R$ 297,00</p>
+                </div>
+                <div className="bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-full">
+                  -50%
+                </div>
+              </div>
+              <p className="text-xs text-muted-foreground mb-4">ou 12x de R$ 24,75 sem juros</p>
+              
+              <Button 
+                variant="hero" 
+                size="lg" 
+                className="w-full text-base md:text-lg py-6 group"
+                onClick={scrollToProducts}
+              >
+                <ShoppingBag className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform" />
+                COMPRAR AGORA
               </Button>
-              <Button variant="outline" size="lg">
-                Ver Produtos
-              </Button>
+              
+              <p className="text-center text-xs text-green-400 mt-3 font-medium">
+                ✓ Frete Grátis para todo Brasil
+              </p>
             </div>
 
-            {/* Stats */}
-            <div className="flex justify-center lg:justify-start gap-12 pt-8">
-              <div className="text-center">
-                <p className="text-3xl font-display font-bold text-gradient-gold">50K+</p>
-                <p className="text-sm text-muted-foreground uppercase tracking-wider">Clientes</p>
+            {/* Trust Badges */}
+            <div className="flex flex-wrap justify-center lg:justify-start gap-4 pt-4">
+              <div className="flex items-center gap-2 text-muted-foreground">
+                <Truck className="w-4 h-4 text-primary" />
+                <span className="text-xs">Frete Grátis</span>
               </div>
-              <div className="text-center">
-                <p className="text-3xl font-display font-bold text-gradient-gold">4.9</p>
-                <p className="text-sm text-muted-foreground uppercase tracking-wider">Avaliação</p>
+              <div className="flex items-center gap-2 text-muted-foreground">
+                <Shield className="w-4 h-4 text-primary" />
+                <span className="text-xs">Garantia 5 Anos</span>
               </div>
-              <div className="text-center">
-                <p className="text-3xl font-display font-bold text-gradient-gold">5 Anos</p>
-                <p className="text-sm text-muted-foreground uppercase tracking-wider">Garantia</p>
+              <div className="flex items-center gap-2 text-muted-foreground">
+                <Star className="w-4 h-4 text-primary" />
+                <span className="text-xs">50K+ Clientes</span>
+              </div>
+            </div>
+
+            {/* Social Proof */}
+            <div className="flex items-center justify-center lg:justify-start gap-3 pt-2">
+              <div className="flex -space-x-2">
+                {[1, 2, 3, 4, 5].map((i) => (
+                  <div
+                    key={i}
+                    className="w-8 h-8 rounded-full bg-gradient-to-br from-primary to-primary/50 border-2 border-background flex items-center justify-center text-xs font-bold text-primary-foreground"
+                  >
+                    {String.fromCharCode(64 + i)}
+                  </div>
+                ))}
+              </div>
+              <div className="text-xs text-muted-foreground">
+                <span className="text-foreground font-semibold">+127 pessoas</span> compraram hoje
               </div>
             </div>
           </div>
 
           {/* Hero Image */}
-          <div className="relative flex justify-center opacity-0 animate-fade-up" style={{ animationDelay: "0.5s" }}>
+          <div className="relative flex justify-center opacity-0 animate-fade-up order-1 lg:order-2" style={{ animationDelay: "0.3s" }}>
             <div className="relative">
               {/* Glow behind product */}
               <div className="absolute inset-0 bg-primary/20 blur-[80px] scale-75" />
@@ -60,8 +105,13 @@ const Hero = () => {
               <img 
                 src={heroShaver} 
                 alt="Máquina de barbear premium BLADE PRO" 
-                className="relative z-10 w-full max-w-lg animate-float drop-shadow-2xl"
+                className="relative z-10 w-full max-w-xs md:max-w-lg animate-float drop-shadow-2xl"
               />
+              
+              {/* Floating Badge */}
+              <div className="absolute top-4 right-0 md:right-4 bg-red-500 text-white px-3 py-2 rounded-lg shadow-lg animate-bounce z-20">
+                <p className="text-xs font-bold">MAIS VENDIDO</p>
+              </div>
               
               {/* Decorative elements */}
               <div className="absolute -bottom-10 left-1/2 -translate-x-1/2 w-64 h-1 bg-gradient-gold opacity-50 blur-sm" />
@@ -70,8 +120,8 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-0 animate-fade-in" style={{ animationDelay: "1s" }}>
+      {/* Scroll indicator - hidden on mobile */}
+      <div className="hidden md:flex absolute bottom-8 left-1/2 -translate-x-1/2 flex-col items-center gap-2 opacity-0 animate-fade-in" style={{ animationDelay: "1s" }}>
         <span className="text-xs text-muted-foreground uppercase tracking-widest">Role para baixo</span>
         <div className="w-px h-12 bg-gradient-to-b from-primary to-transparent" />
       </div>
