@@ -172,9 +172,9 @@ const products = [
     images: [prokit1, prokit2, prokit3],
     name: "KIT PHILCO SKULL PRO + APARADOR",
     description: "Máquina de cortar cabelo Pro + aparador de acabamento vintage com bolsa, pentes e acessórios.",
-    price: "R$ 99,90",
-    priceNumber: 99.9,
-    originalPrice: "R$ 219,90",
+    price: "R$ 59,90",
+    priceNumber: 59.9,
+    originalPrice: "R$ 189,90",
     rating: 5,
   },
 ];
