@@ -2,9 +2,9 @@ import ProductCard from "./ProductCard";
 import aparador1 from "@/assets/aparador-1.jpg";
 import aparador2 from "@/assets/aparador-2.jpg";
 import aparador3 from "@/assets/aparador-3.jpg";
-import product4 from "@/assets/product-4.jpg";
-import product5 from "@/assets/product-5.jpg";
-import product6 from "@/assets/product-6.jpg";
+import kemei1 from "@/assets/kemei-1.jpg";
+import kemei2 from "@/assets/kemei-2.jpg";
+import kemei3 from "@/assets/kemei-3.jpg";
 import product7 from "@/assets/product-7.jpg";
 import product8 from "@/assets/product-8.webp";
 import product9 from "@/assets/product-9.webp";
@@ -29,9 +29,9 @@ const products = [
   },
   {
     id: "2",
-    images: [product4, product5, product6],
-    name: "KEMEI PREMIUM",
-    description: "Barbeador sem fio recarregável com bateria de longa duração.",
+    images: [kemei1, kemei2, kemei3],
+    name: "KEMEI KM-1102",
+    description: "Máquina de barbear sem fio recarregável com lâminas de precisão.",
     price: "R$ 34,90",
     priceNumber: 34.9,
     originalPrice: "R$ 74,90",
