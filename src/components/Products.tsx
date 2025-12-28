@@ -5,9 +5,9 @@ import aparador3 from "@/assets/aparador-3.jpg";
 import kemei1 from "@/assets/kemei-1.jpg";
 import kemei2 from "@/assets/kemei-2.jpg";
 import kemei3 from "@/assets/kemei-3.jpg";
-import product7 from "@/assets/product-7.jpg";
-import product8 from "@/assets/product-8.webp";
-import product9 from "@/assets/product-9.webp";
+import problack1 from "@/assets/problack-1.webp";
+import problack2 from "@/assets/problack-2.webp";
+import problack3 from "@/assets/problack-3.webp";
 import product10 from "@/assets/product-10.webp";
 import product11 from "@/assets/product-11.webp";
 import product12 from "@/assets/product-12.webp";
@@ -39,9 +39,9 @@ const products = [
   },
   {
     id: "3",
-    images: [product7, product8, product9],
-    name: "PRO BLACK",
-    description: "Máquina profissional aparador de pelos masculino premium.",
+    images: [problack1, problack2, problack3],
+    name: "PRO BLACK SHAVER",
+    description: "Barbeador rotativo Wet & Dry com 3 cabeças flutuantes e 40 min de autonomia.",
     price: "R$ 37,90",
     priceNumber: 37.9,
     originalPrice: "R$ 79,90",
