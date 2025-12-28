@@ -20,6 +20,8 @@ import kemeitx1_3 from "@/assets/kemeitx1-3.webp";
 import vgr001_1 from "@/assets/vgr001-1.webp";
 import vgr001_2 from "@/assets/vgr001-2.webp";
 import vgr001_3 from "@/assets/vgr001-3.webp";
+import bmax1 from "@/assets/bmax-1.jpg";
+import bmax2 from "@/assets/bmax-2.jpg";
 
 const products = [
   {
@@ -100,6 +102,16 @@ const products = [
     price: "R$ 89,90",
     priceNumber: 89.9,
     originalPrice: "R$ 189,90",
+    rating: 5,
+  },
+  {
+    id: "9",
+    images: [bmax1, bmax2],
+    name: "B-MAX BM-C024",
+    description: "Máquina de acabamento profissional sem fio com lâmina de aço inoxidável e display digital.",
+    price: "R$ 59,90",
+    priceNumber: 59.9,
+    originalPrice: "R$ 129,90",
     rating: 5,
   },
 ];
