@@ -40,7 +40,7 @@ const products = [
   {
     id: "3",
     images: [problack1, problack2, problack3],
-    name: "PRO BLACK SHAVER",
+    name: "MÁQUINA DE BARBEAR PRO BLACK",
     description: "Barbeador rotativo Wet & Dry com 3 cabeças flutuantes e 40 min de autonomia.",
     price: "R$ 37,90",
     priceNumber: 37.9,
