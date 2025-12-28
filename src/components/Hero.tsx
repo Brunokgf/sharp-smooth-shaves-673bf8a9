@@ -20,7 +20,7 @@ const Hero = () => {
             {/* Urgency Badge */}
             <div className="inline-flex items-center gap-2 bg-red-500/20 border border-red-500/50 rounded-full px-4 py-2 animate-pulse">
               <span className="text-red-400 text-xs md:text-sm font-bold uppercase tracking-wide">
-                🔥 Últimas unidades com 50% OFF
+                🔥 70% OFF + Frete Grátis
               </span>
             </div>
 
@@ -42,7 +42,7 @@ const Hero = () => {
                   <p className="text-3xl md:text-4xl font-display font-bold text-gradient-gold">R$ 30,00</p>
                 </div>
                 <div className="bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-full">
-                  -73%
+                  -70%
                 </div>
               </div>
               <p className="text-xs text-muted-foreground mb-4">ou 3x de R$ 10,00 sem juros</p>
