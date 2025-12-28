@@ -2,29 +2,80 @@ import ProductCard from "./ProductCard";
 import product1 from "@/assets/product-1.jpg";
 import product2 from "@/assets/product-2.jpg";
 import product3 from "@/assets/product-3.webp";
+import product4 from "@/assets/product-4.jpg";
+import product5 from "@/assets/product-5.jpg";
+import product6 from "@/assets/product-6.jpg";
+import product7 from "@/assets/product-7.jpg";
+import product8 from "@/assets/product-8.webp";
+import product9 from "@/assets/product-9.webp";
 
 const products = [
   {
     image: product1,
-    name: "BLADE PRO X1",
-    description: "Barbeador de lâmina dupla com tecnologia FlexHead para contornos perfeitos.",
-    price: "R$ 599",
-    originalPrice: "R$ 799",
+    name: "PHILIPS ONEBLADE",
+    description: "Aparador e barbeador elétrico 3 em 1 para rosto e corpo.",
+    price: "R$ 249",
+    originalPrice: "R$ 349",
     rating: 5,
   },
   {
     image: product2,
-    name: "BLADE TITAN R3",
-    description: "Sistema rotativo de 3 cabeças com IA adaptativa para diferentes tipos de barba.",
-    price: "R$ 899",
-    originalPrice: "R$ 1.199",
+    name: "KEMEI KM-1102",
+    description: "Barbeador sem fio recarregável com lâminas de precisão.",
+    price: "R$ 189",
+    originalPrice: "R$ 259",
     rating: 5,
   },
   {
     image: product3,
-    name: "BLADE ELITE DUAL",
-    description: "O mais avançado barbeador com duas lâminas flutuantes e acabamento premium.",
-    price: "R$ 1.299",
+    name: "BARBEADOR PRO BLACK",
+    description: "Máquina profissional aparador de pelos masculino premium.",
+    price: "R$ 299",
+    rating: 5,
+  },
+  {
+    image: product4,
+    name: "ONEBLADE FACE & BODY",
+    description: "Versão completa para rosto e corpo com acessórios.",
+    price: "R$ 349",
+    originalPrice: "R$ 449",
+    rating: 5,
+  },
+  {
+    image: product5,
+    name: "ONEBLADE TITANIUM",
+    description: "Edição especial com lâminas de titânio duráveis.",
+    price: "R$ 399",
+    rating: 5,
+  },
+  {
+    image: product6,
+    name: "KEMEI PREMIUM",
+    description: "Versão premium com bateria de longa duração.",
+    price: "R$ 219",
+    originalPrice: "R$ 299",
+    rating: 5,
+  },
+  {
+    image: product7,
+    name: "KEMEI COMPACT",
+    description: "Modelo compacto ideal para viagens.",
+    price: "R$ 159",
+    rating: 5,
+  },
+  {
+    image: product8,
+    name: "PRO BLACK ELITE",
+    description: "Versão elite com acabamento premium e estojo.",
+    price: "R$ 349",
+    originalPrice: "R$ 449",
+    rating: 5,
+  },
+  {
+    image: product9,
+    name: "SHAVER ROTATIVO 3D",
+    description: "Barbeador rotativo com 3 cabeças flutuantes.",
+    price: "R$ 279",
     rating: 5,
   },
 ];
