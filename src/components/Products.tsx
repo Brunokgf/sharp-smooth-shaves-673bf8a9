@@ -14,6 +14,9 @@ import vintage3 from "@/assets/vintage-3.webp";
 import kemei6558_1 from "@/assets/kemei6558-1.jpg";
 import kemei6558_2 from "@/assets/kemei6558-2.jpg";
 import pomada1 from "@/assets/pomada-1.jpg";
+import kemeitx1_1 from "@/assets/kemeitx1-1.webp";
+import kemeitx1_2 from "@/assets/kemeitx1-2.webp";
+import kemeitx1_3 from "@/assets/kemeitx1-3.webp";
 
 const products = [
   {
@@ -74,6 +77,16 @@ const products = [
     price: "R$ 19,90",
     priceNumber: 19.9,
     originalPrice: "R$ 39,90",
+    rating: 5,
+  },
+  {
+    id: "7",
+    images: [kemeitx1_1, kemeitx1_2, kemeitx1_3],
+    name: "KEMEI TX1 GOLD",
+    description: "Barbeador Kemei TX1 dourado com lâminas duplas, recarregável USB e bolsa de transporte.",
+    price: "R$ 54,90",
+    priceNumber: 54.9,
+    originalPrice: "R$ 119,90",
     rating: 5,
   },
 ];
