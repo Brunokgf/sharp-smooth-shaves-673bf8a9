@@ -3,9 +3,18 @@ import { useCart } from "@/contexts/CartContext";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { ArrowLeft, CreditCard, QrCode } from "lucide-react";
+import { ArrowLeft, CreditCard, QrCode, Copy, Check, Loader2 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { useToast } from "@/hooks/use-toast";
+import { QRCodeSVG } from "qrcode.react";
+import { supabase } from "@/integrations/supabase/client";
+
+interface PixData {
+  pixCode: string;
+  pixCopyPaste: string;
+  transactionId: string;
+  expiresAt?: string;
+}
 
 const Checkout = () => {
   const { items, totalPrice, clearCart } = useCart();
@@ -13,6 +22,74 @@ const Checkout = () => {
   const { toast } = useToast();
   const [paymentMethod, setPaymentMethod] = useState<"pix" | "card">("pix");
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [pixData, setPixData] = useState<PixData | null>(null);
+  const [copied, setCopied] = useState(false);
+
+  // Form state for PIX
+  const [pixForm, setPixForm] = useState({
+    nome: "",
+    email: "",
+    cpf: "",
+  });
+
+  const handlePixSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    try {
+      const { data, error } = await supabase.functions.invoke('create-pix', {
+        body: {
+          amount: totalPrice,
+          customerName: pixForm.nome,
+          customerEmail: pixForm.email,
+          customerDocument: pixForm.cpf,
+          items: items.map(item => ({
+            name: item.name,
+            quantity: item.quantity,
+            price: item.price,
+          })),
+        },
+      });
+
+      if (error) throw error;
+
+      if (data.success) {
+        setPixData({
+          pixCode: data.pixCode,
+          pixCopyPaste: data.pixCopyPaste,
+          transactionId: data.transactionId,
+          expiresAt: data.expiresAt,
+        });
+        toast({
+          title: "PIX gerado com sucesso!",
+          description: "Escaneie o QR Code ou copie o código para pagar.",
+        });
+      } else {
+        throw new Error(data.error || 'Erro ao gerar PIX');
+      }
+    } catch (error) {
+      console.error('PIX error:', error);
+      toast({
+        title: "Erro ao gerar PIX",
+        description: error instanceof Error ? error.message : "Tente novamente.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const copyPixCode = async () => {
+    if (pixData?.pixCopyPaste) {
+      await navigator.clipboard.writeText(pixData.pixCopyPaste);
+      setCopied(true);
+      toast({
+        title: "Código copiado!",
+        description: "Cole no seu app de banco para pagar.",
+      });
+      setTimeout(() => setCopied(false), 3000);
+    }
+  };
 
   const handleCardSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -21,7 +98,6 @@ const Checkout = () => {
     const form = e.currentTarget;
     const formData = new FormData(form);
 
-    // Adicionar informações do pedido ao formulário
     const orderDetails = items
       .map((item) => `${item.name} x${item.quantity} - R$${(item.price * item.quantity).toFixed(2)}`)
       .join("\n");
@@ -114,7 +190,10 @@ const Checkout = () => {
             <div className="grid grid-cols-2 gap-3">
               <button
                 type="button"
-                onClick={() => setPaymentMethod("pix")}
+                onClick={() => {
+                  setPaymentMethod("pix");
+                  setPixData(null);
+                }}
                 className={`p-4 rounded-lg border transition-all flex flex-col items-center gap-2 ${
                   paymentMethod === "pix"
                     ? "border-primary bg-primary/10"
@@ -139,14 +218,113 @@ const Checkout = () => {
             </div>
 
             {paymentMethod === "pix" ? (
-              <div className="text-center space-y-4 py-8">
-                <p className="text-muted-foreground">
-                  Para pagamento via PIX, habilite o Cloud para integrar com a API de pagamentos.
-                </p>
-                <Button variant="outline" disabled>
-                  Gerar QR Code PIX
-                </Button>
-              </div>
+              pixData ? (
+                <div className="text-center space-y-6 py-4">
+                  <div className="bg-white p-4 rounded-xl inline-block mx-auto">
+                    <QRCodeSVG 
+                      value={pixData.pixCopyPaste || pixData.pixCode} 
+                      size={200}
+                      level="H"
+                    />
+                  </div>
+                  <div className="space-y-3">
+                    <p className="text-muted-foreground text-sm">
+                      Escaneie o QR Code ou copie o código abaixo
+                    </p>
+                    <div className="bg-muted/50 p-3 rounded-lg">
+                      <p className="text-xs text-muted-foreground break-all font-mono">
+                        {pixData.pixCopyPaste?.substring(0, 50)}...
+                      </p>
+                    </div>
+                    <Button 
+                      variant="premium" 
+                      className="w-full"
+                      onClick={copyPixCode}
+                    >
+                      {copied ? (
+                        <>
+                          <Check size={18} className="mr-2" />
+                          Código Copiado!
+                        </>
+                      ) : (
+                        <>
+                          <Copy size={18} className="mr-2" />
+                          Copiar Código PIX
+                        </>
+                      )}
+                    </Button>
+                  </div>
+                  <Button 
+                    variant="outline" 
+                    className="w-full"
+                    onClick={() => {
+                      clearCart();
+                      navigate("/");
+                      toast({
+                        title: "Obrigado!",
+                        description: "Seu pagamento será confirmado em instantes.",
+                      });
+                    }}
+                  >
+                    Já fiz o pagamento
+                  </Button>
+                </div>
+              ) : (
+                <form onSubmit={handlePixSubmit} className="space-y-4">
+                  <div className="space-y-2">
+                    <Label htmlFor="pix-nome">Nome Completo</Label>
+                    <Input 
+                      id="pix-nome" 
+                      required 
+                      placeholder="Seu nome"
+                      value={pixForm.nome}
+                      onChange={(e) => setPixForm({...pixForm, nome: e.target.value})}
+                    />
+                  </div>
+
+                  <div className="space-y-2">
+                    <Label htmlFor="pix-email">Email</Label>
+                    <Input 
+                      id="pix-email" 
+                      type="email" 
+                      required 
+                      placeholder="seu@email.com"
+                      value={pixForm.email}
+                      onChange={(e) => setPixForm({...pixForm, email: e.target.value})}
+                    />
+                  </div>
+
+                  <div className="space-y-2">
+                    <Label htmlFor="pix-cpf">CPF</Label>
+                    <Input 
+                      id="pix-cpf" 
+                      required 
+                      placeholder="000.000.000-00"
+                      value={pixForm.cpf}
+                      onChange={(e) => setPixForm({...pixForm, cpf: e.target.value})}
+                    />
+                  </div>
+
+                  <Button 
+                    type="submit" 
+                    variant="premium" 
+                    className="w-full" 
+                    disabled={isSubmitting}
+                  >
+                    {isSubmitting ? (
+                      <>
+                        <Loader2 size={18} className="mr-2 animate-spin" />
+                        Gerando PIX...
+                      </>
+                    ) : (
+                      <>
+                        <QrCode size={18} className="mr-2" />
+                        Gerar QR Code PIX
+                      </>
+                    )}
+                  </Button>
+                </form>
+              )
             ) : (
               <form onSubmit={handleCardSubmit} className="space-y-4">
                 <input type="hidden" name="_captcha" value="false" />
