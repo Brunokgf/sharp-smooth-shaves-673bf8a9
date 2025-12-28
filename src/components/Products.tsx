@@ -19,7 +19,7 @@ import product16 from "@/assets/product-16.webp";
 const products = [
   {
     id: "1",
-    image: product1,
+    images: [product1, product2, product3],
     name: "PHILIPS ONEBLADE",
     description: "Aparador e barbeador elétrico 3 em 1 para rosto e corpo.",
     price: "R$ 79,90",
@@ -29,7 +29,7 @@ const products = [
   },
   {
     id: "2",
-    image: product2,
+    images: [product2, product1, product4],
     name: "KEMEI KM-1102",
     description: "Barbeador sem fio recarregável com lâminas de precisão.",
     price: "R$ 49,90",
@@ -39,7 +39,7 @@ const products = [
   },
   {
     id: "3",
-    image: product3,
+    images: [product3, product8, product9],
     name: "BARBEADOR PRO BLACK",
     description: "Máquina profissional aparador de pelos masculino premium.",
     price: "R$ 59,90",
@@ -48,7 +48,7 @@ const products = [
   },
   {
     id: "4",
-    image: product4,
+    images: [product4, product5, product1],
     name: "ONEBLADE FACE & BODY",
     description: "Versão completa para rosto e corpo com acessórios.",
     price: "R$ 89,90",
@@ -58,7 +58,7 @@ const products = [
   },
   {
     id: "5",
-    image: product5,
+    images: [product5, product4, product6],
     name: "ONEBLADE TITANIUM",
     description: "Edição especial com lâminas de titânio duráveis.",
     price: "R$ 99,90",
@@ -67,7 +67,7 @@ const products = [
   },
   {
     id: "6",
-    image: product6,
+    images: [product6, product7, product2],
     name: "KEMEI PREMIUM",
     description: "Versão premium com bateria de longa duração.",
     price: "R$ 54,90",
@@ -77,7 +77,7 @@ const products = [
   },
   {
     id: "7",
-    image: product7,
+    images: [product7, product6, product8],
     name: "KEMEI COMPACT",
     description: "Modelo compacto ideal para viagens.",
     price: "R$ 39,90",
@@ -86,7 +86,7 @@ const products = [
   },
   {
     id: "8",
-    image: product8,
+    images: [product8, product3, product9],
     name: "PRO BLACK ELITE",
     description: "Versão elite com acabamento premium e estojo.",
     price: "R$ 69,90",
@@ -96,7 +96,7 @@ const products = [
   },
   {
     id: "9",
-    image: product9,
+    images: [product9, product10, product8],
     name: "SHAVER ROTATIVO 3D",
     description: "Barbeador rotativo com 3 cabeças flutuantes.",
     price: "R$ 64,90",
@@ -105,7 +105,7 @@ const products = [
   },
   {
     id: "10",
-    image: product10,
+    images: [product10, product11, product9],
     name: "PHILIPS 1000 SERIES",
     description: "Barbeador Wet & Dry com cabo USB recarregável.",
     price: "R$ 89,90",
@@ -115,7 +115,7 @@ const products = [
   },
   {
     id: "11",
-    image: product11,
+    images: [product11, product10, product12],
     name: "PHILIPS 1000 PREMIUM",
     description: "Versão premium com tampa protetora inclusa.",
     price: "R$ 99,90",
@@ -125,7 +125,7 @@ const products = [
   },
   {
     id: "12",
-    image: product12,
+    images: [product12, product11, product13],
     name: "BASE CARREGADORA",
     description: "Base de carregamento universal para barbeadores.",
     price: "R$ 29,90",
@@ -134,7 +134,7 @@ const products = [
   },
   {
     id: "13",
-    image: product13,
+    images: [product13, product14, product15],
     name: "MONDIAL SUPERGROOM 10",
     description: "Kit completo 3 em 1 com 10 acessórios inclusos.",
     price: "R$ 79,90",
@@ -144,7 +144,7 @@ const products = [
   },
   {
     id: "14",
-    image: product14,
+    images: [product14, product15, product16],
     name: "VINTAGE V700 DRAGON",
     description: "Máquina vintage com design dragão e bateria de 120 min.",
     price: "R$ 69,90",
@@ -154,7 +154,7 @@ const products = [
   },
   {
     id: "15",
-    image: product15,
+    images: [product15, product16, product14],
     name: "VINTAGE GOLD PREMIUM",
     description: "Lâmina T de precisão com acabamento dourado.",
     price: "R$ 74,90",
@@ -163,7 +163,7 @@ const products = [
   },
   {
     id: "16",
-    image: product16,
+    images: [product16, product15, product13],
     name: "VINTAGE GOLD KIT",
     description: "Kit completo com 2 máquinas e pentes ajustáveis.",
     price: "R$ 119,90",
@@ -197,7 +197,7 @@ const Products = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
           {products.map((product, index) => (
             <ProductCard 
-              key={product.name} 
+              key={product.id} 
               {...product} 
               delay={`${0.3 + index * 0.05}s`}
             />
