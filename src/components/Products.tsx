@@ -22,6 +22,9 @@ import vgr001_2 from "@/assets/vgr001-2.webp";
 import vgr001_3 from "@/assets/vgr001-3.webp";
 import bmax1 from "@/assets/bmax-1.jpg";
 import bmax2 from "@/assets/bmax-2.jpg";
+import navalhete1 from "@/assets/navalhete-1.jpg";
+import navalhete2 from "@/assets/navalhete-2.jpg";
+import navalhete3 from "@/assets/navalhete-3.jpg";
 
 const products = [
   {
@@ -112,6 +115,16 @@ const products = [
     price: "R$ 59,90",
     priceNumber: 59.9,
     originalPrice: "R$ 129,90",
+    rating: 5,
+  },
+  {
+    id: "10",
+    images: [navalhete1, navalhete2, navalhete3],
+    name: "NAVALHETE PROFISSIONAL SR-6000",
+    description: "Navalhete de barbear profissional Dilcintia com lâmina de aço inoxidável e corte preciso.",
+    price: "R$ 14,90",
+    priceNumber: 14.9,
+    originalPrice: "R$ 34,90",
     rating: 5,
   },
 ];
