@@ -1,7 +1,7 @@
 import ProductCard from "./ProductCard";
-import product1 from "@/assets/product-1.png";
-import product2 from "@/assets/product-2.png";
-import product3 from "@/assets/product-3.png";
+import product1 from "@/assets/product-1.jpg";
+import product2 from "@/assets/product-2.jpg";
+import product3 from "@/assets/product-3.webp";
 
 const products = [
   {
