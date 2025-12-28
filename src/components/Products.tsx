@@ -32,6 +32,9 @@ import navalhetegold2 from "@/assets/navalhete-gold-2.webp";
 import philips9em1_1 from "@/assets/philips9em1-1.jpg";
 import philips9em1_2 from "@/assets/philips9em1-2.jpg";
 import philips9em1_3 from "@/assets/philips9em1-3.jpg";
+import prokit1 from "@/assets/prokit-1.webp";
+import prokit2 from "@/assets/prokit-2.webp";
+import prokit3 from "@/assets/prokit-3.webp";
 
 const products = [
   {
@@ -162,6 +165,16 @@ const products = [
     price: "R$ 79,90",
     priceNumber: 79.9,
     originalPrice: "R$ 169,90",
+    rating: 5,
+  },
+  {
+    id: "14",
+    images: [prokit1, prokit2, prokit3],
+    name: "KIT PHILCO SKULL PRO + APARADOR",
+    description: "Máquina de cortar cabelo Pro + aparador de acabamento vintage com bolsa, pentes e acessórios.",
+    price: "R$ 99,90",
+    priceNumber: 99.9,
+    originalPrice: "R$ 219,90",
     rating: 5,
   },
 ];
