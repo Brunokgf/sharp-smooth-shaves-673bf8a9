@@ -8,74 +8,135 @@ import product6 from "@/assets/product-6.jpg";
 import product7 from "@/assets/product-7.jpg";
 import product8 from "@/assets/product-8.webp";
 import product9 from "@/assets/product-9.webp";
+import product10 from "@/assets/product-10.webp";
+import product11 from "@/assets/product-11.webp";
+import product12 from "@/assets/product-12.webp";
+import product13 from "@/assets/product-13.webp";
+import product14 from "@/assets/product-14.webp";
+import product15 from "@/assets/product-15.webp";
+import product16 from "@/assets/product-16.webp";
 
 const products = [
   {
     image: product1,
     name: "PHILIPS ONEBLADE",
     description: "Aparador e barbeador elétrico 3 em 1 para rosto e corpo.",
-    price: "R$ 249",
-    originalPrice: "R$ 349",
+    price: "R$ 79,90",
+    originalPrice: "R$ 129,90",
     rating: 5,
   },
   {
     image: product2,
     name: "KEMEI KM-1102",
     description: "Barbeador sem fio recarregável com lâminas de precisão.",
-    price: "R$ 189",
-    originalPrice: "R$ 259",
+    price: "R$ 49,90",
+    originalPrice: "R$ 89,90",
     rating: 5,
   },
   {
     image: product3,
     name: "BARBEADOR PRO BLACK",
     description: "Máquina profissional aparador de pelos masculino premium.",
-    price: "R$ 299",
+    price: "R$ 59,90",
     rating: 5,
   },
   {
     image: product4,
     name: "ONEBLADE FACE & BODY",
     description: "Versão completa para rosto e corpo com acessórios.",
-    price: "R$ 349",
-    originalPrice: "R$ 449",
+    price: "R$ 89,90",
+    originalPrice: "R$ 149,90",
     rating: 5,
   },
   {
     image: product5,
     name: "ONEBLADE TITANIUM",
     description: "Edição especial com lâminas de titânio duráveis.",
-    price: "R$ 399",
+    price: "R$ 99,90",
     rating: 5,
   },
   {
     image: product6,
     name: "KEMEI PREMIUM",
     description: "Versão premium com bateria de longa duração.",
-    price: "R$ 219",
-    originalPrice: "R$ 299",
+    price: "R$ 54,90",
+    originalPrice: "R$ 99,90",
     rating: 5,
   },
   {
     image: product7,
     name: "KEMEI COMPACT",
     description: "Modelo compacto ideal para viagens.",
-    price: "R$ 159",
+    price: "R$ 39,90",
     rating: 5,
   },
   {
     image: product8,
     name: "PRO BLACK ELITE",
     description: "Versão elite com acabamento premium e estojo.",
-    price: "R$ 349",
-    originalPrice: "R$ 449",
+    price: "R$ 69,90",
+    originalPrice: "R$ 119,90",
     rating: 5,
   },
   {
     image: product9,
     name: "SHAVER ROTATIVO 3D",
     description: "Barbeador rotativo com 3 cabeças flutuantes.",
-    price: "R$ 279",
+    price: "R$ 64,90",
+    rating: 5,
+  },
+  {
+    image: product10,
+    name: "PHILIPS 1000 SERIES",
+    description: "Barbeador Wet & Dry com cabo USB recarregável.",
+    price: "R$ 89,90",
+    originalPrice: "R$ 159,90",
+    rating: 5,
+  },
+  {
+    image: product11,
+    name: "PHILIPS 1000 PREMIUM",
+    description: "Versão premium com tampa protetora inclusa.",
+    price: "R$ 99,90",
+    originalPrice: "R$ 179,90",
+    rating: 5,
+  },
+  {
+    image: product12,
+    name: "BASE CARREGADORA",
+    description: "Base de carregamento universal para barbeadores.",
+    price: "R$ 29,90",
+    rating: 5,
+  },
+  {
+    image: product13,
+    name: "MONDIAL SUPERGROOM 10",
+    description: "Kit completo 3 em 1 com 10 acessórios inclusos.",
+    price: "R$ 79,90",
+    originalPrice: "R$ 139,90",
+    rating: 5,
+  },
+  {
+    image: product14,
+    name: "VINTAGE V700 DRAGON",
+    description: "Máquina vintage com design dragão e bateria de 120 min.",
+    price: "R$ 69,90",
+    originalPrice: "R$ 129,90",
+    rating: 5,
+  },
+  {
+    image: product15,
+    name: "VINTAGE GOLD PREMIUM",
+    description: "Lâmina T de precisão com acabamento dourado.",
+    price: "R$ 74,90",
+    rating: 5,
+  },
+  {
+    image: product16,
+    name: "VINTAGE GOLD KIT",
+    description: "Kit completo com 2 máquinas e pentes ajustáveis.",
+    price: "R$ 119,90",
+    originalPrice: "R$ 199,90",
     rating: 5,
   },
 ];
@@ -101,12 +162,12 @@ const Products = () => {
         </div>
 
         {/* Products Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
           {products.map((product, index) => (
             <ProductCard 
               key={product.name} 
               {...product} 
-              delay={`${0.3 + index * 0.1}s`}
+              delay={`${0.3 + index * 0.05}s`}
             />
           ))}
         </div>
