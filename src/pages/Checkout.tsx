@@ -3,7 +3,7 @@ import { useCart } from "@/contexts/CartContext";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { ArrowLeft, CreditCard, QrCode, Copy, Check, Loader2 } from "lucide-react";
+import { ArrowLeft, CreditCard, QrCode, Copy, Check, Loader2, MapPin } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { useToast } from "@/hooks/use-toast";
 import { QRCodeSVG } from "qrcode.react";
@@ -16,6 +16,16 @@ interface PixData {
   expiresAt?: string;
 }
 
+interface AddressData {
+  cep: string;
+  logradouro: string;
+  bairro: string;
+  localidade: string;
+  uf: string;
+  numero: string;
+  complemento: string;
+}
+
 const Checkout = () => {
   const { items, totalPrice, clearCart } = useCart();
   const navigate = useNavigate();
@@ -24,6 +34,16 @@ const Checkout = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [pixData, setPixData] = useState<PixData | null>(null);
   const [copied, setCopied] = useState(false);
+  const [loadingCep, setLoadingCep] = useState(false);
+  const [address, setAddress] = useState<AddressData>({
+    cep: "",
+    logradouro: "",
+    bairro: "",
+    localidade: "",
+    uf: "",
+    numero: "",
+    complemento: "",
+  });
 
   // Form state for PIX
   const [pixForm, setPixForm] = useState({
@@ -31,6 +51,48 @@ const Checkout = () => {
     email: "",
     cpf: "",
   });
+
+  const searchCep = async (cep: string) => {
+    const cleanCep = cep.replace(/\D/g, "");
+    if (cleanCep.length !== 8) return;
+
+    setLoadingCep(true);
+    try {
+      const response = await fetch(`https://viacep.com.br/ws/${cleanCep}/json/`);
+      const data = await response.json();
+
+      if (data.erro) {
+        toast({
+          title: "CEP não encontrado",
+          description: "Verifique o CEP e tente novamente.",
+          variant: "destructive",
+        });
+        return;
+      }
+
+      setAddress({
+        ...address,
+        cep: cleanCep,
+        logradouro: data.logradouro || "",
+        bairro: data.bairro || "",
+        localidade: data.localidade || "",
+        uf: data.uf || "",
+      });
+
+      toast({
+        title: "Endereço encontrado!",
+        description: `${data.localidade} - ${data.uf}`,
+      });
+    } catch (error) {
+      toast({
+        title: "Erro ao buscar CEP",
+        description: "Tente novamente.",
+        variant: "destructive",
+      });
+    } finally {
+      setLoadingCep(false);
+    }
+  };
 
   const handlePixSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -342,8 +404,106 @@ const Checkout = () => {
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="endereco">Endereço Completo</Label>
-                  <Input id="endereco" name="endereco" required placeholder="Rua, número, bairro, cidade - UF" />
+                  <Label htmlFor="cep">CEP</Label>
+                  <div className="flex gap-2">
+                    <Input 
+                      id="cep" 
+                      name="cep" 
+                      required 
+                      placeholder="00000-000"
+                      value={address.cep}
+                      onChange={(e) => {
+                        const value = e.target.value.replace(/\D/g, "");
+                        setAddress({ ...address, cep: value });
+                        if (value.length === 8) {
+                          searchCep(value);
+                        }
+                      }}
+                      maxLength={9}
+                    />
+                    <Button 
+                      type="button" 
+                      variant="outline" 
+                      onClick={() => searchCep(address.cep)}
+                      disabled={loadingCep}
+                    >
+                      {loadingCep ? <Loader2 size={16} className="animate-spin" /> : <MapPin size={16} />}
+                    </Button>
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="space-y-2">
+                    <Label htmlFor="logradouro">Rua</Label>
+                    <Input 
+                      id="logradouro" 
+                      name="logradouro" 
+                      required 
+                      placeholder="Rua/Avenida"
+                      value={address.logradouro}
+                      onChange={(e) => setAddress({ ...address, logradouro: e.target.value })}
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="numero">Número</Label>
+                    <Input 
+                      id="numero" 
+                      name="numero" 
+                      required 
+                      placeholder="123"
+                      value={address.numero}
+                      onChange={(e) => setAddress({ ...address, numero: e.target.value })}
+                    />
+                  </div>
+                </div>
+
+                <div className="space-y-2">
+                  <Label htmlFor="complemento">Complemento</Label>
+                  <Input 
+                    id="complemento" 
+                    name="complemento" 
+                    placeholder="Apto, Bloco, etc."
+                    value={address.complemento}
+                    onChange={(e) => setAddress({ ...address, complemento: e.target.value })}
+                  />
+                </div>
+
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="space-y-2">
+                    <Label htmlFor="bairro">Bairro</Label>
+                    <Input 
+                      id="bairro" 
+                      name="bairro" 
+                      required 
+                      placeholder="Bairro"
+                      value={address.bairro}
+                      onChange={(e) => setAddress({ ...address, bairro: e.target.value })}
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="localidade">Cidade</Label>
+                    <Input 
+                      id="localidade" 
+                      name="localidade" 
+                      required 
+                      placeholder="Cidade"
+                      value={address.localidade}
+                      onChange={(e) => setAddress({ ...address, localidade: e.target.value })}
+                    />
+                  </div>
+                </div>
+
+                <div className="space-y-2">
+                  <Label htmlFor="uf">Estado</Label>
+                  <Input 
+                    id="uf" 
+                    name="uf" 
+                    required 
+                    placeholder="UF"
+                    value={address.uf}
+                    onChange={(e) => setAddress({ ...address, uf: e.target.value })}
+                    maxLength={2}
+                  />
                 </div>
 
                 <div className="space-y-2">
