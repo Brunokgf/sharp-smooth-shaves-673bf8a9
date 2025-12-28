@@ -15,7 +15,9 @@ import product13 from "@/assets/product-13.webp";
 import product14 from "@/assets/product-14.webp";
 import product15 from "@/assets/product-15.webp";
 import product16 from "@/assets/product-16.webp";
-
+import vintage1 from "@/assets/vintage-1.webp";
+import vintage2 from "@/assets/vintage-2.webp";
+import vintage3 from "@/assets/vintage-3.webp";
 const products = [
   {
     id: "1",
@@ -59,9 +61,9 @@ const products = [
   },
   {
     id: "5",
-    images: [product13, product14, product15],
-    name: "VINTAGE GOLD",
-    description: "Máquina vintage com lâmina T de precisão e acabamento dourado.",
+    images: [vintage1, vintage2, vintage3],
+    name: "MÁQUINA DE CORTAR CABELO VINTAGE",
+    description: "Máquina vintage V700 sem fio com lâmina T, 120 min de uso e design premium com pentes ajustáveis.",
     price: "R$ 49,90",
     priceNumber: 49.9,
     originalPrice: "R$ 109,90",
