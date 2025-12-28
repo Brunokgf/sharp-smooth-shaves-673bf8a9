@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Menu } from "lucide-react";
 import { useState } from "react";
+import CartSheet from "./CartSheet";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -35,20 +36,24 @@ const Header = () => {
             </a>
           </div>
 
-          {/* CTA Button */}
-          <div className="hidden md:block">
+          {/* Cart & CTA */}
+          <div className="hidden md:flex items-center gap-4">
+            <CartSheet />
             <Button variant="premium" size="sm">
               Comprar Agora
             </Button>
           </div>
 
           {/* Mobile Menu Button */}
-          <button 
-            className="md:hidden text-foreground"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
-            <Menu size={24} />
-          </button>
+          <div className="md:hidden flex items-center gap-2">
+            <CartSheet />
+            <button 
+              className="text-foreground"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+            >
+              <Menu size={24} />
+            </button>
+          </div>
         </nav>
 
         {/* Mobile Menu */}

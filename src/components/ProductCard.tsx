@@ -1,17 +1,32 @@
 import { Button } from "@/components/ui/button";
-import { Star } from "lucide-react";
+import { Star, ShoppingCart } from "lucide-react";
+import { useCart } from "@/contexts/CartContext";
+import { useToast } from "@/hooks/use-toast";
 
 interface ProductCardProps {
+  id: string;
   image: string;
   name: string;
   description: string;
   price: string;
+  priceNumber: number;
   originalPrice?: string;
   rating: number;
   delay?: string;
 }
 
-const ProductCard = ({ image, name, description, price, originalPrice, rating, delay = "0s" }: ProductCardProps) => {
+const ProductCard = ({ id, image, name, description, price, priceNumber, originalPrice, rating, delay = "0s" }: ProductCardProps) => {
+  const { addItem } = useCart();
+  const { toast } = useToast();
+
+  const handleAddToCart = () => {
+    addItem({ id, name, price: priceNumber, image });
+    toast({
+      title: "Adicionado ao carrinho!",
+      description: name,
+    });
+  };
+
   return (
     <div 
       className="group relative bg-gradient-card rounded-xl border border-border/50 overflow-hidden hover:border-primary/50 transition-all duration-500 opacity-0 animate-fade-up hover:shadow-gold"
@@ -71,7 +86,8 @@ const ProductCard = ({ image, name, description, price, originalPrice, rating, d
         </div>
 
         {/* Add to cart */}
-        <Button variant="outline" className="w-full">
+        <Button variant="outline" className="w-full" onClick={handleAddToCart}>
+          <ShoppingCart size={16} className="mr-2" />
           Adicionar ao Carrinho
         </Button>
       </div>
