@@ -26,11 +26,11 @@ const Hero = () => {
 
             <div className="space-y-4">
               <h1 className="text-4xl md:text-5xl lg:text-7xl font-display font-bold text-foreground leading-tight">
-                O Barbear
-                <span className="block text-gradient-gold">Perfeito</span>
+                Máquina de Cortar
+                <span className="block text-gradient-gold">Cabelo Vintage</span>
               </h1>
               <p className="text-base md:text-lg text-muted-foreground max-w-md mx-auto lg:mx-0">
-                Engenharia alemã + lâminas japonesas. O resultado mais suave que você já sentiu.
+                Máquina vintage V700 sem fio com lâmina T, 120 min de uso e design premium com pentes ajustáveis.
               </p>
             </div>
 
@@ -38,14 +38,14 @@ const Hero = () => {
             <div className="bg-card/50 border border-border rounded-xl p-4 md:p-6 max-w-sm mx-auto lg:mx-0">
               <div className="flex items-center justify-between mb-3">
                 <div>
-                  <p className="text-muted-foreground text-sm line-through">R$ 599,90</p>
-                  <p className="text-3xl md:text-4xl font-display font-bold text-gradient-gold">R$ 297,00</p>
+                  <p className="text-muted-foreground text-sm line-through">R$ 109,90</p>
+                  <p className="text-3xl md:text-4xl font-display font-bold text-gradient-gold">R$ 30,00</p>
                 </div>
                 <div className="bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-full">
-                  -50%
+                  -73%
                 </div>
               </div>
-              <p className="text-xs text-muted-foreground mb-4">ou 12x de R$ 24,75 sem juros</p>
+              <p className="text-xs text-muted-foreground mb-4">ou 3x de R$ 10,00 sem juros</p>
               
               <Button 
                 variant="hero" 
