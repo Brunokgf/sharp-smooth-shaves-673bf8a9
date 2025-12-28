@@ -36,12 +36,16 @@ serve(async (req) => {
       customer: {
         name: customerName,
         email: customerEmail,
-        document: customerDocument.replace(/\D/g, ''), // Remove non-digits
+        document: {
+          type: customerDocument.replace(/\D/g, '').length === 11 ? 'cpf' : 'cnpj',
+          number: customerDocument.replace(/\D/g, ''),
+        },
       },
       items: items.map((item: { name: string; quantity: number; price: number }) => ({
-        name: item.name,
+        title: item.name,
         quantity: item.quantity,
         unitPrice: Math.round(item.price * 100),
+        tangible: true,
       })),
     };
 
