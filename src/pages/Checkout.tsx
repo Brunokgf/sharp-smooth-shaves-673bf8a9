@@ -110,12 +110,8 @@ const Checkout = () => {
         body: formData,
       });
 
-      toast({
-        title: "Pedido enviado!",
-        description: "Você receberá as instruções de pagamento por email.",
-      });
       clearCart();
-      navigate("/");
+      navigate("/compra-concluida");
     } catch (error) {
       toast({
         title: "Erro ao enviar",
