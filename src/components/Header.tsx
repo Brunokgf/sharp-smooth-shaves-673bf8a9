@@ -13,11 +13,9 @@ const Header = () => {
         <nav className="flex items-center justify-between">
           {/* Logo */}
           <div className="flex items-center">
-            <img 
-              src={bladeProLogo} 
-              alt="Blade Pro" 
-              className="h-10 w-auto"
-            />
+            <span className="text-xl font-display font-bold text-gradient-gold tracking-wide">
+              RASPA LISA AFIADA
+            </span>
           </div>
 
           {/* Desktop Navigation */}

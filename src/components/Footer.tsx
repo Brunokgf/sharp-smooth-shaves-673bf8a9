@@ -7,14 +7,9 @@ const Footer = () => {
         <div className="grid md:grid-cols-4 gap-12">
           {/* Brand */}
           <div className="space-y-4">
-            <div className="flex items-center gap-2">
-              <span className="text-2xl font-display font-bold text-gradient-gold">
-                BLADE
-              </span>
-              <span className="text-2xl font-display font-light text-foreground">
-                PRO
-              </span>
-            </div>
+            <span className="text-2xl font-display font-bold text-gradient-gold">
+              RASPA LISA AFIADA
+            </span>
             <p className="text-sm text-muted-foreground">
               Máquinas de barbear premium para o homem moderno. Qualidade e precisão em cada detalhe.
             </p>
@@ -55,7 +50,7 @@ const Footer = () => {
           <div>
             <h4 className="font-display font-semibold text-foreground mb-4">Contato</h4>
             <ul className="space-y-3">
-              <li className="text-sm text-muted-foreground">contato@bladepro.com.br</li>
+              <li className="text-sm text-muted-foreground">contato@raspalisaafiada.com.br</li>
               <li className="text-sm text-muted-foreground">0800 123 4567</li>
               <li className="text-sm text-muted-foreground">São Paulo, Brasil</li>
             </ul>
@@ -64,7 +59,7 @@ const Footer = () => {
 
         <div className="border-t border-border/30 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm text-muted-foreground">
-            © 2024 BLADE PRO. Todos os direitos reservados.
+            © 2024 RASPA LISA AFIADA. Todos os direitos reservados.
           </p>
           <div className="flex gap-6">
             <a href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors">Privacidade</a>
