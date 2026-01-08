@@ -21,7 +21,7 @@ const PromoBanner = () => {
           <div className="hidden sm:flex items-center gap-1 text-muted-foreground">
             <Gift className="w-3 h-3 text-primary/70" />
             <span className="text-xs md:text-sm">
-              Brinde em todas as compras
+              <span className="text-primary font-medium">Pomada Modeladora</span> de brinde
             </span>
           </div>
         </div>
