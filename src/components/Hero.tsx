@@ -38,14 +38,14 @@ const Hero = () => {
             <div className="bg-card/50 border border-border rounded-xl p-4 md:p-6 max-w-sm mx-auto lg:mx-0">
               <div className="flex items-center justify-between mb-3">
                 <div>
-                  <p className="text-muted-foreground text-sm line-through">R$ 109,90</p>
-                  <p className="text-3xl md:text-4xl font-display font-bold text-gradient-gold">R$ 30,00</p>
+                  <p className="text-muted-foreground text-sm line-through">R$ 59,90</p>
+                  <p className="text-3xl md:text-4xl font-display font-bold text-gradient-gold">R$ 15,00</p>
                 </div>
                 <div className="bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-full">
-                  -70%
+                  -75%
                 </div>
               </div>
-              <p className="text-xs text-muted-foreground mb-4">ou 3x de R$ 10,00 sem juros</p>
+              <p className="text-xs text-muted-foreground mb-4">ou 2x de R$ 7,50 sem juros</p>
               
               <Button 
                 variant="hero" 
