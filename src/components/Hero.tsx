@@ -1,6 +1,8 @@
 import { Button } from "@/components/ui/button";
-import { ShoppingBag, Shield, Truck, Star } from "lucide-react";
+import { ShoppingBag, Shield, Truck, Star, Gift } from "lucide-react";
 import vintage1 from "@/assets/vintage-1.webp";
+import brindeHidratante from "@/assets/brinde-hidratante.jpg";
+import brindePosBarba from "@/assets/brinde-pos-barba.webp";
 
 const Hero = () => {
   const scrollToProducts = () => {
@@ -112,9 +114,38 @@ const Hero = () => {
               <div className="absolute top-4 right-0 md:right-4 bg-red-500 text-white px-3 py-2 rounded-lg shadow-lg animate-bounce z-20">
                 <p className="text-xs font-bold">MAIS VENDIDO</p>
               </div>
+
+              {/* Brindes Section */}
+              <div className="absolute -bottom-4 md:-bottom-8 left-1/2 -translate-x-1/2 z-20">
+                <div className="bg-gradient-to-r from-primary/90 to-primary rounded-xl p-3 shadow-2xl border border-primary/50">
+                  <div className="flex items-center gap-2 mb-2">
+                    <Gift className="w-4 h-4 text-primary-foreground" />
+                    <span className="text-xs font-bold text-primary-foreground uppercase tracking-wide">Brindes Exclusivos</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <div className="relative group">
+                      <img 
+                        src={brindeHidratante} 
+                        alt="Gel de Banho Kaiak" 
+                        className="w-12 h-16 md:w-14 md:h-20 object-contain bg-white rounded-lg p-1 shadow-lg transition-transform group-hover:scale-110"
+                      />
+                      <span className="absolute -bottom-5 left-1/2 -translate-x-1/2 text-[8px] text-primary-foreground font-medium whitespace-nowrap">Hidratante</span>
+                    </div>
+                    <span className="text-primary-foreground font-bold text-lg">+</span>
+                    <div className="relative group">
+                      <img 
+                        src={brindePosBarba} 
+                        alt="Pós Barba B.URB" 
+                        className="w-12 h-16 md:w-14 md:h-20 object-contain bg-white rounded-lg p-1 shadow-lg transition-transform group-hover:scale-110"
+                      />
+                      <span className="absolute -bottom-5 left-1/2 -translate-x-1/2 text-[8px] text-primary-foreground font-medium whitespace-nowrap">Pós Barba</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
               
               {/* Decorative elements */}
-              <div className="absolute -bottom-10 left-1/2 -translate-x-1/2 w-64 h-1 bg-gradient-gold opacity-50 blur-sm" />
+              <div className="absolute -bottom-16 md:-bottom-20 left-1/2 -translate-x-1/2 w-64 h-1 bg-gradient-gold opacity-50 blur-sm" />
             </div>
           </div>
         </div>
