@@ -115,30 +115,39 @@ const Hero = () => {
                 <p className="text-xs font-bold">MAIS VENDIDO</p>
               </div>
 
-              {/* Brindes Section */}
-              <div className="absolute -bottom-4 md:-bottom-8 left-1/2 -translate-x-1/2 z-20">
-                <div className="bg-gradient-to-r from-primary/90 to-primary rounded-xl p-3 shadow-2xl border border-primary/50">
-                  <div className="flex items-center gap-2 mb-2">
-                    <Gift className="w-4 h-4 text-primary-foreground" />
-                    <span className="text-xs font-bold text-primary-foreground uppercase tracking-wide">Brindes Exclusivos</span>
+              {/* Brindes Section - Mais Destaque */}
+              <div className="absolute -bottom-8 md:-bottom-12 left-1/2 -translate-x-1/2 z-20 w-[280px] md:w-[340px]">
+                <div className="bg-gradient-to-br from-green-600 via-green-500 to-emerald-500 rounded-2xl p-4 shadow-2xl border-2 border-green-400/50">
+                  <div className="flex items-center justify-center gap-2 mb-3">
+                    <Gift className="w-5 h-5 text-white animate-pulse" />
+                    <span className="text-sm md:text-base font-black text-white uppercase tracking-wider">🎁 Brindes Grátis</span>
+                    <Gift className="w-5 h-5 text-white animate-pulse" />
                   </div>
-                  <div className="flex items-center gap-3">
-                    <div className="relative group">
+                  <div className="flex items-stretch gap-3 justify-center">
+                    {/* Hidratante */}
+                    <div className="flex-1 bg-white/95 rounded-xl p-2 shadow-lg text-center">
                       <img 
                         src={brindeHidratante} 
-                        alt="Gel de Banho Kaiak" 
-                        className="w-12 h-16 md:w-14 md:h-20 object-contain bg-white rounded-lg p-1 shadow-lg transition-transform group-hover:scale-110"
+                        alt="Hidratante Corporal" 
+                        className="w-16 h-20 md:w-20 md:h-24 object-contain mx-auto mb-2"
                       />
-                      <span className="absolute -bottom-5 left-1/2 -translate-x-1/2 text-[8px] text-primary-foreground font-medium whitespace-nowrap">Hidratante</span>
+                      <p className="text-xs md:text-sm font-bold text-gray-800 leading-tight">Hidratante</p>
+                      <p className="text-[10px] md:text-xs text-gray-600">Corporal 200ml</p>
                     </div>
-                    <span className="text-primary-foreground font-bold text-lg">+</span>
-                    <div className="relative group">
+                    
+                    <div className="flex items-center">
+                      <span className="text-white font-black text-2xl drop-shadow-lg">+</span>
+                    </div>
+                    
+                    {/* Pós Barba */}
+                    <div className="flex-1 bg-white/95 rounded-xl p-2 shadow-lg text-center">
                       <img 
                         src={brindePosBarba} 
-                        alt="Pós Barba B.URB" 
-                        className="w-12 h-16 md:w-14 md:h-20 object-contain bg-white rounded-lg p-1 shadow-lg transition-transform group-hover:scale-110"
+                        alt="Loção Pós Barba" 
+                        className="w-16 h-20 md:w-20 md:h-24 object-contain mx-auto mb-2"
                       />
-                      <span className="absolute -bottom-5 left-1/2 -translate-x-1/2 text-[8px] text-primary-foreground font-medium whitespace-nowrap">Pós Barba</span>
+                      <p className="text-xs md:text-sm font-bold text-gray-800 leading-tight">Pós Barba</p>
+                      <p className="text-[10px] md:text-xs text-gray-600">Loção Suavizante</p>
                     </div>
                   </div>
                 </div>
